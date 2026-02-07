@@ -375,9 +375,22 @@ u32 MapGridGetMetatileBehaviorAt(int x, int y)
 }
 
 u8 MapGridGetMetatileLayerTypeAt(int x, int y)
+DrawMetatileLayer(layer1);
+DrawMetatileLayer(layer2);
+DrawMetatileLayer(layer3); // new line
+u8 MapGridGetMetatileLayer3TypeAt(int x, int y) 
+{ 
+    u16 metatile = MapGridGetMetatileIdAt(x, y); 
+    return UNPACK_LAYER3_TYPE(GetMetatileAttributesById(metatile)); 
+}
 {
     u16 metatile = MapGridGetMetatileIdAt(x, y);
     return UNPACK_LAYER_TYPE(GetMetatileAttributesById(metatile));
+}
+u8 MapGridGetMetatileLayer3TypeAt(int x, int y) 
+{ 
+    u16 metatile = MapGridGetMetatileIdAt(x, y); 
+ return UNPACK_LAYER3_TYPE(GetMetatileAttributesById(metatile));
 }
 
 void MapGridSetMetatileIdAt(int x, int y, u16 metatile)
