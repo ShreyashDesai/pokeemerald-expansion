@@ -433,6 +433,20 @@ u16 GetMetatileAttributesById(u16 metatile)
         return MB_INVALID;
     }
 }
+// Existing function
+u8 MapGridGetMetatileLayerTypeAt(int x, int y)
+{
+    u16 metatile = MapGridGetMetatileIdAt(x, y);
+    return UNPACK_LAYER_TYPE(GetMetatileAttributesById(metatile));
+}
+
+// New function for the third layer
+u8 MapGridGetMetatileLayer3TypeAt(int x, int y)
+{
+    u16 metatile = MapGridGetMetatileIdAt(x, y);
+    return UNPACK_LAYER3_TYPE(GetMetatileAttributesById(metatile));
+}
+
 
 void SaveMapView(void)
 {
