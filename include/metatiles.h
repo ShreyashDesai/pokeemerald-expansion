@@ -8,3 +8,5 @@ struct Metatile {
 };
 
 #endif // GUARD_METATILES_H
+#define UNPACK_LAYER3_TYPE(attr) (((attr) >> LAYER3_SHIFT) & LAYER3_MASK)
+
